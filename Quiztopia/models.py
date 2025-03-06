@@ -3,7 +3,7 @@ from django.db import models
 class User(models.Model):
 
     username = models.CharField(max_length=100, unique=True, primary_key=True)
-    profile_picture = models.ImageField(upload_to='',blank=True)
+    profile_picture = models.ImageField(upload_to='profile_pictures',blank=True)
     points = models.IntegerField(default=0)
     quizzes_taken = models.IntegerField(default=0)
     quizzes_created = models.IntegerField(default=0)
