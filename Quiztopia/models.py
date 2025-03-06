@@ -27,7 +27,7 @@ class Quiz(models.Model):
         ("Hard" , "Hard"),
     ]
 
-    quiz_ID = models.CharField(max_length=10, unique=True, primary_key=True)
+    quiz_ID = models.AutoField(primary_key=True)
     quiz_title = models.CharField(max_length=200)
     category = models.CharField(max_length=100,choices=categories)
     difficulty = models.CharField(max_length=100,choices=difficulties)
@@ -43,7 +43,7 @@ class Quiz(models.Model):
 
 class Question(models.Model):
 
-    question_ID = models.CharField(max_length=10, unique=True, primary_key=True)
+    question_ID = models.AutoField(primary_key=True)
     question_text = models.CharField(max_length=500)
     quiz_ID = models.ForeignKey(Quiz, on_delete=models.CASCADE, to_field='quiz_ID')
 
@@ -52,7 +52,7 @@ class Question(models.Model):
     
 class Answer(models.Model):
 
-    answer_ID = models.CharField(max_length=10, unique=True, primary_key=True)
+    answer_ID = models.AutoField(primary_key=True)
     answer_text = models.CharField(max_length=200)
     is_correct = models.BooleanField(default=False)
     question_ID = models.ForeignKey(Question, on_delete=models.CASCADE, to_field='question_ID')
