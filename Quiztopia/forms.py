@@ -1,11 +1,11 @@
 from django import forms 
-from models import Quiz, Question, Answer
+from Quiztopia.models import Quiz, Question, Answer
 
 class QuizForm(forms.ModelForm):
 
-    title = forms.CharField(max_length=200, help_text="Quiz Name")
-    category = forms.CharField(max_length=100, choices=Quiz.categories)
-    difficulty = forms.CharField(max_length=100, choices=Quiz.difficulties)
+    title = forms.CharField(max_length=200, help_text="Quiz Name:")
+    category = forms.ChoiceField(choices=Quiz.categories, help_text="Category:")
+    difficulty = forms.ChoiceField(choices=Quiz.difficulties, help_text="Difficulty:")
     upvotes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:
@@ -18,7 +18,7 @@ class QuestionForm(forms.ModelForm):
 
     class Meta:
         model = Question
-        fields = ('question_text')
+        fields = ('question_text',)
 
 class AnswerForm(forms.ModelForm):
 
@@ -27,4 +27,4 @@ class AnswerForm(forms.ModelForm):
 
     class Meta:
         model = Answer
-        fields = ('answer_text')
+        fields = ('answer_text',)

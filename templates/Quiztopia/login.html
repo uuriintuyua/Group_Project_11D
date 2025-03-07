@@ -1,0 +1,14 @@
+{% extends 'Quiztopia/base.html' %}
+{% load staticfiles %}
+
+{% block body_block %}
+    <h1>Login to Quiztopia</h1>
+    <form id="login_form" method="post" action="{% url 'Quiztopia:login' %}">
+        {% csrf_token %}
+        Username: <input type="text" name="username" value="" size="50" />
+        <br />
+        Password: <input type="password" name="password" value="" size="50" />
+        <br />
+        <input type="submit" value="submit" />
+    </form>
+{% endblock %}
