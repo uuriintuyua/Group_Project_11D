@@ -1,7 +1,9 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class User(models.Model):
+class UserProfile(models.Model):
 
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     username = models.CharField(max_length=100, unique=True, primary_key=True)
     profile_picture = models.ImageField(upload_to='profile_pictures',blank=True)
     points = models.IntegerField(default=0)
@@ -26,13 +28,13 @@ class Quiz(models.Model):
         ("Medium" , "Medium"),
         ("Hard" , "Hard"),
     ]
-
+    
     quiz_ID = models.AutoField(primary_key=True)
     quiz_title = models.CharField(max_length=200)
     category = models.CharField(max_length=100,choices=categories)
     difficulty = models.CharField(max_length=100,choices=difficulties)
     upvotes = models.IntegerField(default=0)
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, to_field='username')
+    creator = models.ForeignKey(UserProfile, on_delete=models.CASCADE, to_field='username')
 
     class Meta:
         verbose_name_plural = 'Quizzes'

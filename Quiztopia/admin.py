@@ -1,7 +1,7 @@
 from django.contrib import admin
-from Quiztopia.models import User, Quiz, Question, Answer
+from Quiztopia.models import UserProfile, Quiz, Question, Answer
 
-class UserAdmin(admin.ModelAdmin):
+class UserProfileAdmin(admin.ModelAdmin):
 
     list_display = ('username', 'points', 'quizzes_taken', 'quizzes_created')
 
@@ -17,7 +17,7 @@ class AnswerAdmin(admin.ModelAdmin):
 
     list_display = ('answer_ID','answer_text','is_correct','question_ID')
 
-admin.site.register(User, UserAdmin)
+admin.site.register(UserProfile, UserProfileAdmin)
 admin.site.register(Quiz, QuizAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
