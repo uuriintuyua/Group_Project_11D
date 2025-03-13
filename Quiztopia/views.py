@@ -45,3 +45,8 @@ def add_quiz(request):
             print(form.errors)
     
     return render(request, 'Quiztopia/add_quiz.html', {'form': form})
+
+
+def categories(request):
+    return render(request, 'Quiztopia/categories.html')
+

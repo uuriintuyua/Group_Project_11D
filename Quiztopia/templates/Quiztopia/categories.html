@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Categories</title>
+    <style>
+        body {
+            text-align: center;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .category {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+        }
+        .category img {
+            width: 150px;  /* Set width */
+            height: 100px; /* Set height */
+            object-fit: cover; /* Maintain aspect ratio */
+        }
+        .category p {
+            margin: 10px 0 0; /* Space above the text */
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiztopia</h1>
+    <h2>Categories</h2>
+    <div class="categories">
+        <div class="category">
+            <a href="{% url 'general_knowledge' %}">
+                <img src="{% static 'images/general_knowledge.jpg' %}" alt="General Knowledge" />
+                <p>General Knowledge</p>
+            </a>
+        </div>
+        <div class="category">
+            <a href="{% url 'sport' %}">
+                <img src="{% static 'images/sport.jpg' %}" alt="Sport" />
+                <p>Sport</p>
+            </a>
+        </div>
+        <div class="category">
+            <a href="{% url 'other' %}">
+                <img src="{% static 'images/other.jpg' %}" alt="Other" />
+                <p>Other</p>
+            </a>
+        </div>
+        <div class="category">
+            <a href="{% url 'animals' %}">
+                <img src="{% static 'images/animals.jpg' %}" alt="Animals" />
+                <p>Animals</p>
+            </a>
+        </div>
+        <div class="category">
+            <a href="{% url 'movie_tv' %}">
+                <img src="{% static 'images/movie_tv.jpg' %}" alt="Movie & TV" />
+                <p>Movie & TV</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
