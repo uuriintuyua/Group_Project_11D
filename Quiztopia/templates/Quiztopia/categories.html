@@ -1,10 +1,11 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Categories</title>
+    <title>Quiztopia Categories</title>
     <style>
         body {
             text-align: center;
@@ -28,41 +29,56 @@
         .category p {
             margin: 10px 0 0; /* Space above the text */
         }
+        /* New styles for layout */
+        .top-row {
+            display: flex;
+            justify-content: center;
+            flex-basis: 100%; /* Full width */
+        }
+        .bottom-row {
+            display: flex;
+            justify-content: center;
+            flex-basis: 100%; /* Full width */
+        }
     </style>
 </head>
 <body>
     <h1>Quiztopia</h1>
     <h2>Categories</h2>
     <div class="categories">
-        <div class="category">
-            <a href="{% url 'general_knowledge' %}">
-                <img src="{% static 'images/general_knowledge.jpg' %}" alt="General Knowledge" />
-                <p>General Knowledge</p>
-            </a>
+        <div class="top-row">
+            <div class="category">
+                <a href="{% url 'general_knowledge' %}">
+                    <img src="{% static 'images/general_knowledge.jpg' %}" alt="General Knowledge" />
+                    <p>General Knowledge</p>
+                </a>
+            </div>
+            <div class="category">
+                <a href="{% url 'sport' %}">
+                    <img src="{% static 'images/sport.jpg' %}" alt="Sport" />
+                    <p>Sport</p>
+                </a>
+            </div>
+            <div class="category">
+                <a href="{% url 'other' %}">
+                    <img src="{% static 'images/other.jpg' %}" alt="Other" />
+                    <p>Other</p>
+                </a>
+            </div>
         </div>
-        <div class="category">
-            <a href="{% url 'sport' %}">
-                <img src="{% static 'images/sport.jpg' %}" alt="Sport" />
-                <p>Sport</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="{% url 'other' %}">
-                <img src="{% static 'images/other.jpg' %}" alt="Other" />
-                <p>Other</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="{% url 'animals' %}">
-                <img src="{% static 'images/animals.jpg' %}" alt="Animals" />
-                <p>Animals</p>
-            </a>
-        </div>
-        <div class="category">
-            <a href="{% url 'movie_tv' %}">
-                <img src="{% static 'images/movie_tv.jpg' %}" alt="Movie & TV" />
-                <p>Movie & TV</p>
-            </a>
+        <div class="bottom-row">
+            <div class="category">
+                <a href="{% url 'animals' %}">
+                    <img src="{% static 'images/animals.jpg' %}" alt="Animals" />
+                    <p>Animals</p>
+                </a>
+            </div>
+            <div class="category">
+                <a href="{% url 'movie_tv' %}">
+                    <img src="{% static 'images/movie_tv.jpg' %}" alt="Movie & TV" />
+                    <p>Movie & TV</p>
+                </a>
+            </div>
         </div>
     </div>
 </body>
